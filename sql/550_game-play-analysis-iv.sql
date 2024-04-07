@@ -1,0 +1,3 @@
+# Write your MySQL query statement below
+with cte as (select player_id, event_date, lead(event_date) over (partition by player_id order by event_date) as next_date, row_number() over(partition by player_id order by event_date) as row_num from Activity)
+select ROUND((count(distinct(cte.player_id)))/(select count(distinct player_id) from Activity),2) as fraction from cte where cte.row_num=1 and DATEDIFF(cte.next_date,cte.event_date)=1

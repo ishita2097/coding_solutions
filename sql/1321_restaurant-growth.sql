@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+with cte as (select visited_on, sum(amount) over (order by visited_on RANGE BETWEEN INTERVAL '6' DAY PRECEDING AND CURRENT ROW ) amount from Customer order by visited_on) select distinct(cte.visited_on) visited_on, cte.amount as amount, ROUND((amount/7),2) average_amount  from cte where cte.visited_on >= DATE_ADD((select min(visited_on) from Customer), INTERVAL 6 DAY) order by cte.visited_on

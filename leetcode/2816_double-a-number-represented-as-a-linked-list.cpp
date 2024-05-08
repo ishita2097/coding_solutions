@@ -10,6 +10,39 @@
  */
 class Solution {
 public:
+    ListNode* doubleIt(ListNode* head) {
+     
+     if(head->val > 4)
+        head = new ListNode(0,head);
+    
+    ListNode *temp = head;
+    
+     while(temp!=nullptr){
+        temp->val = (2*temp->val)%10;
+        if(temp->next && (temp->next)->val >4)
+           temp->val = temp->val + 1; 
+        temp = temp->next;
+     }    
+     return head;
+    }
+};
+
+
+/************************************** 2nd Approach **********************************************/
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+ 
+ /*
+class Solution {
+public:
     ListNode* reverseIt(ListNode* head){
         ListNode* curr=head, *nxt=head->next, *temp;
         while(nxt!=nullptr){
@@ -46,3 +79,5 @@ public:
         return head;
     }
 };
+*/
+/***************************************************************************************************/

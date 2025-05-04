@@ -38,7 +38,7 @@ Space Complexity: O(n)
 //             }
     
 //             long long res = 0;
-//             for (int j = 0; j < size; j++) {
+//             for (int j = 1; j < size - 1; j++) {
 //                 res = max(res, (long long)(maxi[j] - nums[j]) * maxk[j]);
 //             }
     

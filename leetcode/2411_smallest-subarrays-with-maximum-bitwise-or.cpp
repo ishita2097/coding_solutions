@@ -1,5 +1,7 @@
 class Solution {
 public:
+    /*bitwise OR property: bitwise OR is monotonically non-decreasing. As we tend to add more elements 
+    to the subarray for bitwise OR, the resultant bitwise OR of the new subarray either increases or remains same*/
     vector<int> smallestSubarrays(vector<int>& nums) {
         vector<int> setbit_pos(32, -1);
         int len = nums.size(), max_pos = 0;
